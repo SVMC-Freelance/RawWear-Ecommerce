@@ -8,6 +8,11 @@ import CheckMail from "../pages/auth/checkmail";
 import NewPassword from "../pages/auth/newpassword";
 import MainLayout from "../layout/mainlayout";
 import HomePage from "../pages/homepage";
+import ProductListPage from "../pages/productlistpage/productlistpage";
+import Men from '../pages/productlistpage/men';
+import Women from '../pages/productlistpage/women';
+import Joggers from '../pages/productlistpage/joggers';
+import Combos from '../pages/productlistpage/combo';
 
 
 export const RouteApp = ()=> {
@@ -24,10 +29,18 @@ export const RouteApp = ()=> {
                 {path:'*', element:<Navigate to="/signup" />},    
             ],
         },
-        { path: "/",
+        { path: "/homepage",
             element: <MainLayout/>,
             children: [
-                {path:"/speedometer",element:<HomePage/>},
+                {index:true,element:<HomePage/>},
+                {path:"productlistpage",element:<ProductListPage/>,
+                    children:[
+                        { index: true, element: <Men /> }, 
+                        { path: "women", element: <Women /> }, 
+                        { path: "combos", element: <Combos /> }, 
+                        { path: "joggers", element: <Joggers /> }, 
+                    ]
+                },
             ]
         },
     ])
