@@ -1,9 +1,11 @@
 import React from 'react'
 
+
 const homepage = () => {
   return (
-    <div>
-      Home Page
+    <div className=''>
+       <div>HomePage</div>
+       
     </div>
   )
 }
