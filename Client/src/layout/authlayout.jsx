@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import Logo from '../assets/auth/logo.svg';
 
 const AuthLayout = () => {
+  const navigate=useNavigate();
   return (
     <div className="bg-gray-200 h-screen py-5 px-41 lg:py-5 lg:px-40 overflow-scroll lg:overflow-hidden">
       <div className="  h-[calc(100vh-40px)]  flex bg-white flex-col rounded-sm ">
@@ -34,7 +35,7 @@ const AuthLayout = () => {
           </form>
 
           <div className=' flex items-center'>
-            <button type="button" class="text-white bg-[#8A33FD] hover:bg-[#6B0FD6] focus:ring-1 focus:border-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Login</button>
+            <button onClick={()=>{navigate("/homepage")}} type="button" class="text-white bg-[#8A33FD] hover:bg-[#6B0FD6] focus:ring-1 focus:border-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 me-2">Login</button>
             <button type="button" class="py-2.5 px-5 me-2  text-sm font-medium text-[#8A33FD] focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-[#6B0FD6] focus:z-10 focus:ring-1 focus:border-[#8A33FD]">Sign Up</button>
           </div>
 
