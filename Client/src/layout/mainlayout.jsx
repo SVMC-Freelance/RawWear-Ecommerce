@@ -8,21 +8,45 @@ import FooterIcons from '../assets/footer/footericons.svg';
 import Cart from '../assets/header/cart.svg';
 import Profile from '../assets/header/profile.svg';
 import Heart from '../assets/header/heart.svg';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 
 const MainLayout = () => {
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
   return (
     <div className='h-screen flex flex-col'>
-      <nav className='fixed top-0 w-full bg-white shadow z-10 px-5 py-3 border border-b-gray-400 flex justify-around items-center'>
+      <nav className='fixed top-0 w-full bg-white shadow z-10 px-5 py-3  border-b-gray-400 flex justify-around items-center'>
         <div><img src={Logo} alt="" />  </div>
         <div>
           <ul className='flex gap-6 cursor-pointer  '>
-            <li onClick={()=>{navigate("/homepage")}} className=' text-gray-400 hover:text-black '>Shop</li>
-            <li onClick={()=>{navigate("/homepage/productlistpage")}} className=' text-gray-400 hover:text-black'>Men</li>
-            <li onClick={()=>{navigate("/homepage/productlistpage/women")}} className=' text-gray-400 hover:text-black'>Women</li>
-            <li onClick={()=>{navigate("/homepage/productlistpage/combos")}} className=' text-gray-400 hover:text-black'>Combos</li>
-            <li onClick={()=>{navigate("/homepage/productlistpage/joggers")}} className=' text-gray-400 hover:text-black'>Jogers</li>
+            <li onClick={() => navigate("/homepage")} className={`${isActive("/homepage") ? "text-[#8A33FD]" : "text-gray-400"} hover:text-black`}>
+              Shop
+            </li>
+            <li
+              onClick={() => navigate("/homepage/productlistpage")}
+              className={`${isActive("/homepage/productlistpage") ? "text-[#8A33FD]" : "text-gray-400"} hover:text-black`}
+            >
+              Men
+            </li>
+            <li
+              onClick={() => navigate("/homepage/productlistpage/women")}
+              className={`${isActive("/homepage/productlistpage/women") ? "text-[#8A33FD]" : "text-gray-400"} hover:text-black`}
+            >
+              Women
+            </li>
+            <li
+              onClick={() => navigate("/homepage/productlistpage/combos")}
+              className={`${isActive("/homepage/productlistpage/combos") ? "text-[#8A33FD]" : "text-gray-400"} hover:text-black`}
+            >
+              Combos
+            </li>
+            <li
+              onClick={() => navigate("/homepage/productlistpage/joggers")}
+              className={`${isActive("/homepage/productlistpage/joggers") ? "text-[#8A33FD]" : "text-gray-400"} hover:text-black`}
+            >
+              Jogers
+            </li>
           </ul>
         </div>
         <div>
@@ -51,7 +75,7 @@ const MainLayout = () => {
         </div>
         <div className='flex gap-3'>
           <img className='w-10 h-10' src={Heart} alt="" />
-          <img className='w-10 h-10' src={Profile} alt="" />
+          <img onClick={() => { navigate("/") }} className='w-10 h-10' src={Profile} alt="" />
           <img className='w-10 h-10' src={Cart} alt="" />
         </div>
       </nav>
