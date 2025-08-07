@@ -13,6 +13,9 @@ import Men from '../pages/productlistpage/men';
 import Women from '../pages/productlistpage/women';
 import Joggers from '../pages/productlistpage/joggers';
 import Combos from '../pages/productlistpage/combo';
+import CartPage from '../pages/cartpage/cartpage';
+import CheckOut from '../pages/cartpage/checkoutpage';
+import CartLayout from '../pages/cartpage/cartlayout';
 
 
 export const RouteApp = ()=> {
@@ -39,6 +42,12 @@ export const RouteApp = ()=> {
                         { path: "women", element: <Women /> }, 
                         { path: "combos", element: <Combos /> }, 
                         { path: "joggers", element: <Joggers /> }, 
+                    ]
+                },
+                {path:"cart",element:<CartLayout/>,
+                    children:[
+                         {index: true,element:<CartPage/>},
+                         {path: "checkout",element:<CheckOut/>},
                     ]
                 },
             ]

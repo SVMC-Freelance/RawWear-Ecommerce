@@ -76,7 +76,7 @@ const MainLayout = () => {
         <div className='flex gap-3'>
           <img className='w-10 h-10' src={Heart} alt="" />
           <img onClick={() => { navigate("/") }} className='w-10 h-10' src={Profile} alt="" />
-          <img className='w-10 h-10' src={Cart} alt="" />
+          <img onClick={() => navigate("/homepage/cart")} className={` w-10 h-10`} src={Cart} alt="" />
         </div>
       </nav>
       <main className='flex-1 pt-17'>
