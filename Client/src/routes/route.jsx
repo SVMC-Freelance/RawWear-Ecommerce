@@ -7,7 +7,7 @@ import ResetPassword from "../pages/auth/resetpassword";
 import CheckMail from "../pages/auth/checkmail";
 import NewPassword from "../pages/auth/newpassword";
 import MainLayout from "../layout/mainlayout";
-import HomePage from "../pages/homepage";
+import HomePage from "../pages/homepage/homepage";
 import ProductListPage from "../pages/productlistpage/productlistpage";
 import Men from '../pages/productlistpage/men';
 import Women from '../pages/productlistpage/women';
