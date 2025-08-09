@@ -5,18 +5,18 @@ import Logo from '../assets/auth/logo.svg';
 import { Outlet } from 'react-router';
 import FooterIcon from '../assets/footer/footericon.svg';
 import FooterIcons from '../assets/footer/footericons.svg';
-import Cart from '../assets/header/cart.svg';
-import Profile from '../assets/header/profile.svg';
-import Heart from '../assets/header/heart.svg';
 import { useNavigate, useLocation } from 'react-router';
-
+import { FiShoppingCart } from "react-icons/fi";
+import { IoPeopleOutline } from "react-icons/io5";
+import { LuHeart } from "react-icons/lu";
+        
 const MainLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
   return (
     <div className='h-screen flex flex-col'>
-      <nav className='fixed top-0 w-full bg-white shadow z-10 px-5 py-3  border-b-gray-400 flex justify-around items-center'>
+      <nav className='fixed top-0 w-full bg-white shadow z-10 px-5 py-3  border-b-gray-400 flex justify-around items-center z-50'>
         <div><img src={Logo} alt="" />  </div>
         <div>
           <ul className='flex gap-6 cursor-pointer  '>
@@ -50,19 +50,19 @@ const MainLayout = () => {
           </ul>
         </div>
         <div>
-          <form class="h-10 hidden lg:block">
-            <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-            <div class="relative">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+          <form className="h-10 hidden lg:block">
+            <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+            <div className="relative">
+              <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                 </svg>
               </div>
               {/* <input type="search" id="default-search" class="block  p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required /> */}
               <input
                 type="search"
                 id="default-search"
-                class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50
+                className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50
                focus:outline-none focus:ring-1 focus:ring-[#8A33FD] focus:border-[#8A33FD] 
                dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
                dark:focus:ring-[#8A33FD] dark:focus:border-[#8A33FD]"
@@ -73,10 +73,10 @@ const MainLayout = () => {
             </div>
           </form>
         </div>
-        <div className='flex gap-3'>
-          <img className='w-10 h-10' src={Heart} alt="" />
-          <img onClick={() => { navigate("/") }} className='w-10 h-10' src={Profile} alt="" />
-          <img className='w-10 h-10' src={Cart} alt="" />
+        <div className='flex gap-3  '>
+          <button className={`${isActive("/homepage/productlistpage") ? "text-[#8A33FD]" : "text-gray-400"} hover:text-black h-10 w-10  rounded-lg bg-[#F6F6F6] flex items-center justify-center  text-gray-600 `}><LuHeart/></button>
+          <button onClick={() => { navigate("/homepage/profile") }} className={`${isActive("/homepage/profile")||isActive("/homepage/profile/newaddress")||isActive("/homepage/profile/wishlist")||isActive("/homepage/profile/myorder")||isActive("/homepage/profile/newaddress")  ? "bg-[#8A33FD]  text-white" : "bg-[#F6F6F6]  text-gray-600"} hover:text-black h-10 w-10  rounded-lg  flex items-center justify-center`}><IoPeopleOutline/></button>
+          <button onClick={() => navigate("/homepage/cart")} className={`${isActive("/homepage/cart")||isActive("/homepage/cart/checkout") ? "bg-[#8A33FD]  text-white" : "bg-[#F6F6F6]  text-gray-600"} hover:text-black h-10 w-10  rounded-lg  flex items-center justify-center `}><FiShoppingCart/></button>
         </div>
       </nav>
       <main className='flex-1 pt-17'>

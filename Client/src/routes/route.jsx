@@ -13,6 +13,14 @@ import Men from '../pages/productlistpage/men';
 import Women from '../pages/productlistpage/women';
 import Joggers from '../pages/productlistpage/joggers';
 import Combos from '../pages/productlistpage/combo';
+import CartPage from '../pages/cartpage/cartpage';
+import CheckOut from '../pages/cartpage/checkoutpage';
+import CartLayout from '../pages/cartpage/cartlayout';
+import ProfileLayout from '../pages/profile/profilelayout';
+import MyInfo from '../pages/profile/myinfo';
+import MyOrder from '../pages/profile/myorder';
+import WishList from '../pages/profile/wishlist';
+import NewAddress from '../pages/profile/newaddress';
 
 
 export const RouteApp = ()=> {
@@ -39,6 +47,20 @@ export const RouteApp = ()=> {
                         { path: "women", element: <Women /> }, 
                         { path: "combos", element: <Combos /> }, 
                         { path: "joggers", element: <Joggers /> }, 
+                    ]
+                },
+                {path:"cart",element:<CartLayout/>,
+                    children:[
+                         {index: true,element:<CartPage/>},
+                         {path: "checkout",element:<CheckOut/>},
+                    ]
+                },
+                {path:"profile",element:<ProfileLayout/>,
+                    children:[
+                         {index: true,element:<MyInfo/>},
+                         {path: "myorder",element:<MyOrder/>},
+                         {path: "wishlist",element:<WishList/>},
+                         {path: "newaddress",element:<NewAddress/>},
                     ]
                 },
             ]
