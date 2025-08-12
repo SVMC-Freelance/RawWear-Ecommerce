@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { GoHomeFill } from "react-icons/go";
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCart } from '../../store/cart/cartThunk';
 
@@ -24,24 +23,6 @@ const checkoutpage = () => {
 
     return (
         <div className='px-20 py-7 flex flex-col gap-5'>
-            <nav className=" text-gray-600 flex items-center space-x-2  " aria-label="Breadcrumb">
-                <GoHomeFill />
-                <button
-                    onClick={() => navigate('/homepage')}
-                    className=""
-                >
-                    Home
-                </button>
-                <span>/</span>
-                <button
-                    onClick={() => navigate('/homepage/cart')}
-                    className=""
-                >
-                    Cart
-                </button>
-                <span>/</span>
-                <span className="text-gray-800 font-medium">Checkout</span>
-            </nav>
             <h1 className='border-l-4 border-[#8A33FD] font-bold text-2xl rounded px-3 py-2'>Check Out</h1>
             <div className='grid grid-cols-[2fr_1fr] gap-8  max-h-[500px]'>
                 <div>

@@ -9,6 +9,7 @@ import { useNavigate, useLocation } from 'react-router';
 import { FiShoppingCart } from "react-icons/fi";
 import { IoPeopleOutline } from "react-icons/io5";
 import { LuHeart } from "react-icons/lu";
+
         
 const MainLayout = () => {
   const navigate = useNavigate();
@@ -74,11 +75,12 @@ const MainLayout = () => {
           </form>
         </div>
         <div className='flex gap-3  '>
-          <button className={`${isActive("/homepage/productlistpage") ? "text-[#8A33FD]" : "text-gray-400"} hover:text-black h-10 w-10  rounded-lg bg-[#F6F6F6] flex items-center justify-center  text-gray-600 `}><LuHeart/></button>
+          <button onClick={()=>{navigate("/homepage/profile/wishlist")}} className={`${isActive("/homepage/productlistpage") ? "text-[#8A33FD]" : "text-gray-400"} hover:text-black h-10 w-10  rounded-lg bg-[#F6F6F6] flex items-center justify-center  text-gray-600 `}><LuHeart/></button>
           <button onClick={() => { navigate("/homepage/profile") }} className={`${isActive("/homepage/profile")||isActive("/homepage/profile/newaddress")||isActive("/homepage/profile/wishlist")||isActive("/homepage/profile/myorder")||isActive("/homepage/profile/newaddress")  ? "bg-[#8A33FD]  text-white" : "bg-[#F6F6F6]  text-gray-600"} hover:text-black h-10 w-10  rounded-lg  flex items-center justify-center`}><IoPeopleOutline/></button>
           <button onClick={() => navigate("/homepage/cart")} className={`${isActive("/homepage/cart")||isActive("/homepage/cart/checkout") ? "bg-[#8A33FD]  text-white" : "bg-[#F6F6F6]  text-gray-600"} hover:text-black h-10 w-10  rounded-lg  flex items-center justify-center `}><FiShoppingCart/></button>
         </div>
       </nav>
+
       <main className='flex-1 pt-17'>
         <Outlet />
       </main>
