@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {  increaseQuantity, decreaseQuantity, removeItem ,addcoupon} from '../../store/cart/cartSlice';
 import {fetchCart} from '../../store/cart/cartThunk';
-import { GoHomeFill } from "react-icons/go";
 
 const cartpage = () => {
     const dispatch = useDispatch();
@@ -44,20 +43,6 @@ const cartpage = () => {
 
     return (
         < >
-            <nav className=" text-gray-600 flex items-center space-x-2  px-15 py-3 " aria-label="Breadcrumb">
-                <GoHomeFill />
-                <button
-                    onClick={() => navigate('/homepage')}
-                    className=""
-                >
-                    Home
-                </button>
-                <span>/</span>
-                <span className="text-gray-800 font-medium">Cart</span>
-            </nav>
-
- 
-
             <div className="">
                 <table className="min-w-full text-sm  border-gray-200">
                     <thead className="bg-[#3C4242]  text-white ">
